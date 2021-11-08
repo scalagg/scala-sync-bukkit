@@ -5,8 +5,6 @@ import gg.scala.sync.randomize.RandomizedPhrase
 import net.evilblock.cubed.acf.BaseCommand
 import net.evilblock.cubed.acf.annotation.CommandAlias
 import net.evilblock.cubed.util.CC
-import net.evilblock.cubed.util.bukkit.FancyMessage
-import net.md_5.bungee.api.chat.ClickEvent
 import org.bukkit.entity.Player
 
 /**
