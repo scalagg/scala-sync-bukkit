@@ -19,7 +19,6 @@ class LinkCommand : BaseCommand()
     fun onLink(player: Player)
     {
         val uniqueId = player.uniqueId.toString()
-        player.sendMessage("${CC.GRAY}Attempting code generation...")
 
         LinkHandler.linked.fetchEntryByKey(uniqueId).thenAccept {
             if (it != null)
@@ -40,35 +39,24 @@ class LinkCommand : BaseCommand()
         }
     }
 
-    fun attemptLinkWithCode(player: Player, code: String, persist: Boolean)
+    private fun attemptLinkWithCode(player: Player, code: String, persist: Boolean)
     {
         val lambda: () -> Unit = {
-            val fancyMessage = FancyMessage()
-
-            fancyMessage.withMessage(
-                "",
-                " ${CC.B_PRI}Discord Sync",
-                " ${CC.GRAY}Your code has been generated!",
-                ""
+            player.sendMessage(
+                arrayOf(
+                    "",
+                    " ${CC.B_PRI}Discord Sync",
+                    " ${CC.GRAY}Your code has been generated!",
+                    "",
+                    " ${CC.PRI}Follow the steps below to sync:",
+                    "  ${CC.GRAY}1. ${CC.WHITE}Join our discord, ${CC.YELLOW}discord.gg/pvpbar${CC.WHITE}.",
+                    "  ${CC.GRAY}2. ${CC.WHITE}Click on the ${CC.YELLOW}#sync${CC.WHITE} channel.",
+                    "  ${CC.GRAY}3. ${CC.WHITE}Execute the ${CC.YELLOW}-sync $code${CC.WHITE} command!",
+                    "",
+                    " ${CC.I_GRAY}If you encounter any issues, create",
+                    " ${CC.I_GRAY}a support ticket in our discord!"
+                )
             )
-            fancyMessage.withMessage(
-                " ${CC.I_WHITE}Click this message to view the command!"
-            )
-            fancyMessage.andCommandOf(
-                ClickEvent.Action.SUGGEST_COMMAND, "-sync $code"
-            )
-            fancyMessage.withMessage(
-                "",
-                " ${CC.PRI}Follow the steps below to sync:",
-                "  ${CC.WHITE}1. ${CC.YELLOW}Join our discord, ${CC.WHITE}discord.gg/pvpbar${CC.YELLOW}.",
-                "  ${CC.WHITE}2. ${CC.YELLOW}Click on the ${CC.WHITE}#sync${CC.YELLOW} channel.",
-                "  ${CC.WHITE}3. ${CC.YELLOW}Execute the ${CC.WHITE}-sync $code${CC.YELLOW} command!",
-                "",
-                "${CC.I_WHITE}If you encounter any issues, create",
-                "${CC.I_WHITE}a support ticket in our discord!",
-            )
-
-            fancyMessage.sendToPlayer(player)
         }
 
         if (persist)
