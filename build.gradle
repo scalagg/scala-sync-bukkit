@@ -11,6 +11,11 @@ repositories {
     mavenCentral()
 }
 
+compileKotlin {
+    kotlinOptions.javaParameters = true
+    kotlinOptions.jvmTarget = "1.8"
+}
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.31"
     compileOnly "org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT"

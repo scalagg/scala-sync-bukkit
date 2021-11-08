@@ -1,4 +1,4 @@
-package gg.scala.sync.util
+package gg.scala.sync.randomize
 
 import java.util.concurrent.ThreadLocalRandom
 

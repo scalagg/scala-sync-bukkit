@@ -1,6 +1,9 @@
 package gg.scala.sync
 
 import gg.scala.commons.ExtendedScalaPlugin
+import gg.scala.sync.command.LinkCommand
+import gg.scala.sync.handler.LinkHandler
+import net.evilblock.cubed.command.manager.CubedCommandManager
 
 /**
  * @author GrowlyX
@@ -8,5 +11,11 @@ import gg.scala.commons.ExtendedScalaPlugin
  */
 class SyncSpigotPlugin : ExtendedScalaPlugin()
 {
+    override fun enable()
+    {
+        val manager = CubedCommandManager(this)
+        LinkHandler.initialLoad()
 
+        manager.registerCommand(LinkCommand())
+    }
 }
