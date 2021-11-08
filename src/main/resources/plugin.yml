@@ -5,4 +5,4 @@ main: gg.scala.sync.SyncSpigotPlugin
 author: Scala
 website: https://scala.gg
 
-depend: [Cubed, helper]
+depend: [Cubed, Lemon, helper]
