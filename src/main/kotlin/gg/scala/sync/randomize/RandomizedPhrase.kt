@@ -8,10 +8,7 @@ import java.util.concurrent.ThreadLocalRandom
  */
 object RandomizedPhrase
 {
-    @JvmStatic
     private const val CHARACTERS = "abcdefghijklmnopqrstuvwxyz1234567890"
-
-    @JvmStatic
     private const val LENGTH = CHARACTERS.length.toFloat()
 
     @JvmStatic
