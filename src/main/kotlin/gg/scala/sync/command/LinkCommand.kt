@@ -53,7 +53,7 @@ class LinkCommand : BaseCommand()
                     "",
                     " ${CC.I_GRAY}If you encounter any issues, create",
                     " ${CC.I_GRAY}a support ticket in our discord!",
-
+                    ""
                 )
             )
         }
