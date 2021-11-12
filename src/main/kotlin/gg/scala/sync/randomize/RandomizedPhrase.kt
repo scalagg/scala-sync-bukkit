@@ -8,8 +8,14 @@ import java.util.concurrent.ThreadLocalRandom
  */
 object RandomizedPhrase
 {
+    @JvmStatic
     private const val CHARACTERS = "abcdefghijklmnopqrstuvwxyz1234567890"
+
+    @JvmStatic
     private const val LENGTH = CHARACTERS.length.toFloat()
+
+    @JvmStatic
+    private val RANDOM = ThreadLocalRandom.current()
 
     @JvmStatic
     @JvmOverloads
@@ -19,8 +25,8 @@ object RandomizedPhrase
 
         while (finalForm.length < size)
         {
-            val index = (ThreadLocalRandom.current().nextFloat() * LENGTH).toInt()
-            finalForm += CHARACTERS[index]
+            val index = RANDOM.nextFloat() * LENGTH
+            finalForm += CHARACTERS[index.toInt()]
         }
 
         return finalForm

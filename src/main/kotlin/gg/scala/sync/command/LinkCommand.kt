@@ -52,16 +52,16 @@ class LinkCommand : BaseCommand()
                     "  ${CC.GRAY}3. ${CC.WHITE}Execute the ${CC.YELLOW}-sync $code${CC.WHITE} command!",
                     "",
                     " ${CC.I_GRAY}If you encounter any issues, create",
-                    " ${CC.I_GRAY}a support ticket in our discord!",
-                    ""
+                    " ${CC.I_GRAY}a support ticket in our discord!"
                 )
             )
         }
 
         if (persist)
         {
-            LinkHandler.codes.saveEntry(player.uniqueId.toString(), code)
-                .thenRun { lambda.invoke() }
+            LinkHandler.codes.saveEntry(
+                player.uniqueId.toString(), code
+            ).thenRun { lambda.invoke() }
         } else
         {
             lambda.invoke()
